@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.hibernate.lexter.ContactInfo" table="contacttbl">
+		<meta attribute="class-description">
+			This class contains the contact details.
+		</meta>
+		<id name="id" type="int" column="id">
+			<generator class="increment">
+				<!-- <param name="sequence">contacttbl_id_seq</param> -->
+			</generator>
+		</id>
+
+		<property name="contactType" column="contacttype" type="string"/>
+		<property name="contactInfo" column="contactinfo" type="string"/>
+		<property name="index" column="index" type="int"/>
+	</class>
+</hibernate-mapping>
