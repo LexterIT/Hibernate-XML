@@ -60,7 +60,7 @@ public class ScannerUtil
 				input = Integer.parseInt(scanner.nextLine());
 				valid = true;
 			} catch(NumberFormatException e) {
-				System.out.println("Please only enter double!");
+				System.out.println("Please only enter integer!");
 				valid = false;
 			}
 		}
@@ -99,7 +99,6 @@ public class ScannerUtil
 
 	    SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
 	    String dateFormatted = fmt.format(date);
-	    System.out.println(dateFormatted);
 	    Date newDate = null;
 	    try {
 		    newDate = fmt.parse(fmt.format(date));
