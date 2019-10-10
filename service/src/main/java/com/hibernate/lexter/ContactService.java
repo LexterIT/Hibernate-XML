@@ -49,7 +49,7 @@ public class ContactService {
     	String contactType = "", contactInfo;
     	List<ContactType> contactTypes = hibernateUtil.getObject(ContactType.class);
     	List<String> stringContactTypes = setContactTypes(contactTypes);	
-    	// while(!checkContains(stringContactTypes, contactType))
+        System.out.println(stringContactTypes);
         while(!stringContactTypes.contains(contactType)) {
 	    	contactType = scannerUtil.getInputString("Please Choose a Contact Type");
     	}
@@ -70,7 +70,6 @@ public class ContactService {
         List<String> stringContactTypes = setContactTypes(contactTypes);
     	int index = scannerUtil.getInputInt("Enter Index of Contact to Update");
     	ContactInfo contact = contactInfos.get(index);
-		// while(!checkContains(stringContactTypes, contactType))
         while(!stringContactTypes.contains(contactType)) {
     		contactType = scannerUtil.getInputString("Enter new Contact Type");
 		}		
@@ -94,12 +93,5 @@ public class ContactService {
         return stringContactTypes;
 	}	
 
-	public boolean checkContains(List<String> contactTypes, String contactType) {
-		for(String str : contactTypes) {
-			if(str.equalsIgnoreCase(contactType)) 
-				return true;
-		}
-		return false;
-	}
 
 }
