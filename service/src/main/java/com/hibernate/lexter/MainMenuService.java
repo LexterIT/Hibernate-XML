@@ -64,9 +64,6 @@ public class MainMenuService {
 	public List<Person> listPersonSort(String field, String order) {
 		List<Person> people = hibernateUtil.getSorted(Person.class, field, order);
 		return people;
-		// for(Person person : people) {
-		// 	System.out.println(person);
-		// }
 	}
 
 	public List<Person> sortPersonGWA(String order) {
@@ -80,9 +77,6 @@ public class MainMenuService {
 		treeSet.addAll(people);
 		people = new ArrayList<Person>(treeSet);
 		return people;
-		// for(Person person : treeSet) {
-		// 	System.out.println(person);
-		// }
 	}
 
 }

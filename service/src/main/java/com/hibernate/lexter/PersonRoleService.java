@@ -19,6 +19,30 @@ public class PersonRoleService {
         this.scannerUtil = scannerUtil;
     }
 
+
+	public void updateRoleMenu(Person person) {
+		String action;
+		int index;
+		Set<Role> roles = person.getRoles();
+		List<Role> rolesTemp = new ArrayList<Role>(roles);
+		System.out.println(rolesTemp);
+		action = scannerUtil.getInputString("ADD? DELETE?");
+		switch(action.toUpperCase()) {
+			case "ADD":
+				roles = createPersonRoleInput(roles);
+			break;
+			case "DELETE":
+				index = scannerUtil.getInputInt("Enter Index of Role to Delete");
+				rolesTemp.remove((index-1));
+				roles.retainAll(rolesTemp);
+			break;
+			default:
+				System.out.println("Invalid action");
+				return;
+		}
+		person.setRoles(roles);
+	}
+
     public Set<Role> createPersonRoleInput(Set<Role> curRoles) {
 		String roleChoice = "";	
     	String choice = "yes";
@@ -42,6 +66,7 @@ public class PersonRoleService {
 					System.out.println("This Person already have the Role:"+roleChoice);
 				} else {
 					curRoles.add(tempRole);
+					System.out.println(curRoles);
 				}
 				roleChoice = "";
 				choice = scannerUtil.getInputString("Do you want to add another? ('Yes' or 'No')");
@@ -57,29 +82,6 @@ public class PersonRoleService {
     	Role role = roles.get(roleId);
     	return role;
     }
-
-	public void updateRoleMenu(Person person) {
-		String action;
-		int index;
-		Set<Role> roles = person.getRoles();
-		List<Role> rolesTemp = new ArrayList<Role>(roles);
-		System.out.println(rolesTemp);
-		action = scannerUtil.getInputString("ADD? DELETE?");
-		switch(action.toUpperCase()) {
-			case "ADD":
-				roles = createPersonRoleInput(roles);
-			break;
-			case "DELETE":
-				index = scannerUtil.getInputInt("Enter Index of Role to Delete");
-				rolesTemp.remove((index-1));
-			break;
-			default:
-				System.out.println("Invalid action");
-				return;
-		}
-		roles.retainAll(rolesTemp);
-		person.setRoles(roles);
-	}
 
 	private List<String> toRoleString(List<Role> roles) {
 		List<String> rolesString = new ArrayList<String>();

@@ -53,7 +53,10 @@ public class PersonService {
 				case "VIEW":
                     id = scannerUtil.getInputInt("Enter the ID of Person you want to View");
 					Person person = readPerson(id);
-                    System.out.println(person);
+                    if(person != null)
+                        System.out.println(person);
+                    else 
+                        System.out.println("Person with this ID does not exist!");
 				break;
 				case "EXIT":
 					return;

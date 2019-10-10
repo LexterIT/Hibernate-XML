@@ -1,6 +1,8 @@
 package com.hibernate.lexter;
 
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Set;
 
 public class RoleService {
 
@@ -85,6 +87,25 @@ public class RoleService {
 
 	public void deleteRole(int id) {
 		Role role =(Role) hibernateUtil.getSingleObject(Role.class, id);
+		deletePersonContainRole(role);
 		hibernateUtil.deleteObject(role);
+	}
+
+	public void deletePersonContainRole(Role role) {
+		List<Person> peopleRole = (List<Person>) hibernateUtil.getObject(Person.class);
+		String curRole = role.toString();
+		for(Person person : peopleRole) {
+			Set<Role> perRole = person.getRoles();
+			List<Role> listRole = new ArrayList<Role>(person.getRoles());
+			for(Role tempRole : listRole) {
+				String strRole = tempRole.toString();
+				if(strRole.equals(curRole)) {
+					listRole.remove(tempRole);
+					perRole.retainAll(listRole);
+				}
+			}
+			person.setRoles(perRole);
+			hibernateUtil.updateObject(person);
+		}
 	}
 }

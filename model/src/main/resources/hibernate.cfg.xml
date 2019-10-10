@@ -21,10 +21,6 @@
         <mapping resource="Person.hbm.xml"></mapping>
         <mapping resource="Role.hbm.xml"></mapping>
         <mapping resource="ContactType.hbm.xml"></mapping>
-        <!-- <mapping resource="PersonRole.hbm.xml"></mapping> -->
         <mapping resource="ContactInfo.hbm.xml"></mapping>
-
-        <!-- <mapping class="com.hibernate.lexter.Person"/> -->
-        <!-- <mapping class="com.hibernate.lexter.Role"/> -->
     </session-factory>
 </hibernate-configuration>
