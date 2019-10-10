@@ -79,7 +79,7 @@ public class AppTest
         Name name = new Name("Sample", "Lang");
         person = new Person(name);
         returnList.add(person);
-        when(hibernateUtil.getObject(Person.class)).thenReturn(returnList);
+        when(hibernateUtil.getSorted(Person.class,"id","asc")).thenReturn(returnList);
         List sampleList = mainService.listPerson();
         Person pers = (Person) sampleList.get(0);
         assertEquals(pers, returnList.get(0));

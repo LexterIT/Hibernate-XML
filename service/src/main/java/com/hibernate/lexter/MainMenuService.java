@@ -22,7 +22,7 @@ public class MainMenuService {
 
 	public List listPerson() {
 		 List<Person> people = null;
-        people = hibernateUtil.getObject(Person.class);
+        people = hibernateUtil.getSorted(Person.class, "id", "asc");
         for(Person person : people) {
             System.out.println(person);
         }

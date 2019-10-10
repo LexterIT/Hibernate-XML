@@ -150,6 +150,8 @@ public class HibernateUtil {
 				cr.orderBy(cb.asc(root.get(field)));
 			else
 				cr.orderBy(cb.desc(root.get(field)));
+		} else if(field.equalsIgnoreCase("id")) {
+			cr.orderBy(cb.asc(root.get(field)));
 		}
 		Query query = session.createQuery(cr);
 		List results = query.getResultList();
