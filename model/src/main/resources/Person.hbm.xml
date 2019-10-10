@@ -38,7 +38,7 @@
 			<one-to-many class="com.hibernate.lexter.ContactInfo"/>
 		</list>
 
-		<set name="roles" lazy="false" table="personroletbl">
+		<set name="roles" lazy="false" cascade="persist,merge,save-update" table="personroletbl">
 			<key column="empid"/>
 			<many-to-many column="roleid" class="com.hibernate.lexter.Role"/>
 		</set>
