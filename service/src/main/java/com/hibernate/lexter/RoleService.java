@@ -24,7 +24,6 @@ public class RoleService {
 	}
 
 	public void roleMenu() {
-		// hibernateUtil = new HibernateUtil();
 		String action;
 		while(true) {
 			int id;
@@ -98,10 +97,8 @@ public class RoleService {
 			Set<Role> perRole = person.getRoles();
 			List<Role> listRole = new ArrayList<Role>(person.getRoles());
 			for(Role tempRole : listRole) {
-				String strRole = tempRole.toString();
-				if(strRole.equals(curRole)) {
-					listRole.remove(tempRole);
-					perRole.retainAll(listRole);
+				if(tempRole.toString().equals(role.toString())) {
+					perRole.remove(tempRole);
 				}
 			}
 			person.setRoles(perRole);
