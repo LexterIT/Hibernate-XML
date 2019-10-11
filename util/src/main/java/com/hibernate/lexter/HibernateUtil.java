@@ -6,23 +6,12 @@ import org.hibernate.SessionFactory;
 import org.hibernate.HibernateException;
 import org.hibernate.cfg.Configuration;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Properties;
-import java.util.stream.Collectors; 
-import java.util.stream.Stream; 
-
-
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import org.hibernate.Query;
 
-// import org.hibernate.query.Query;
-
-//TO DO CRITERIA TO CRITERIAQUERY
 
 public class HibernateUtil {
 
