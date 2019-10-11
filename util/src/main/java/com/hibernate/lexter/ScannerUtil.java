@@ -10,7 +10,6 @@ import java.util.Date;
 import java.text.SimpleDateFormat;  
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.InputMismatchException;
 import org.apache.commons.lang3.StringUtils;
 
 public class ScannerUtil 
@@ -105,7 +104,6 @@ public class ScannerUtil
 	    } catch (Exception e) {
 	    	e.printStackTrace();
 	    }
-	    System.out.println(newDate);
 	    return newDate;
   }
 }
