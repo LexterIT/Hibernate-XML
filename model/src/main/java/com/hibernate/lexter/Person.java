@@ -103,14 +103,18 @@ public class Person{
     }
 
     public String toString() {
-        String info = id + "\n" + "Name:" + name + "\tBirthday:" + birthday + "\tGWA:" + gwa +"\n";
-        info += "Date Hired:" + dateHired + "\tCurrently Employed?" +isCurEmp +"\n";
+        String info = "[" + id + "]\n";
+        info += "Name:" + name +" \n";
         info += "Address:" + address + "\n";
+        info += "Birthday:" + birthday + "\tDate Hired:" + dateHired + "\n";
+        info += "Employment Status:" + isCurEmp + "\tGWA:" + gwa;
         if(contactInfo.size() != 0) 
-            info += "Contact Info:" + contactInfo + "\n";
+            info += "\nContact Info:" + contactInfo + "";
         if(roles.size() != 0)
-            info += "Roles:" + roles;
+            info += "\nRoles:" + roles;
+        info += "\n";
         return info;
+
     }
 
 }
