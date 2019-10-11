@@ -140,7 +140,7 @@ public class PersonService {
             }
         }
         String colChoice = scannerUtil.getInputString("Enter which Column you want to Update");
-        System.out.println("NAME?ADDRESS?GWA?BIRTHDAY?DATEHIRED?STATUS?CONTACT?ROLE?")  
+        System.out.println("NAME? ADDRESS? GWA? BIRTHDAY? DATEHIRED? STATUS? CONTACT? ROLE?");  
         updatePerson(person, colChoice);
     }
 
