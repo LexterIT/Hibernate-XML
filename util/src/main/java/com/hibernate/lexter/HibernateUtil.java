@@ -146,7 +146,7 @@ public class HibernateUtil {
 			else 
 				cr.orderBy(cb.desc(root.get("name").get(field)));
 		} else if(field.equalsIgnoreCase("dateHired")) {
-			if(order.equals("asc"))
+			if(order.equalsIgnoreCase("asc"))
 				cr.orderBy(cb.asc(root.get(field)));
 			else
 				cr.orderBy(cb.desc(root.get(field)));
