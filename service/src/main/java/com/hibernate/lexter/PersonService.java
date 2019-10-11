@@ -139,7 +139,8 @@ public class PersonService {
                 valid = false;
             }
         }
-        String colChoice = scannerUtil.getInputString("Enter which Column you want to Update");  
+        System.out.println("NAME? ADDRESS? GWA? BIRTHDAY? DATEHIRED? STATUS? CONTACT? ROLE?"); 
+        String colChoice = scannerUtil.getInputString("Enter which Column you want to Update"); 
         updatePerson(person, colChoice);
     }
 
@@ -168,7 +169,7 @@ public class PersonService {
     			boolean status = scannerUtil.getInputBoolean("Enter Updated Status:");
     			person.setIsCurEmp(status);
     		break;
-    		case "CONTACTINFO":
+    		case "CONTACT":
                 contactService.updateContactMenu(person);
     		break;
     		case "ROLE":
