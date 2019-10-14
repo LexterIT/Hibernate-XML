@@ -1,13 +1,11 @@
 package com.hibernate.lexter;
 
 
-import org.apache.commons.lang3.StringUtils;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Date;
-import java.util.Calendar;
 
 public class PersonService {
 	
@@ -181,7 +179,12 @@ public class PersonService {
 
     public void deletePerson(int id) {
         Person person =(Person) hibernateUtil.getSingleObject(Person.class, id);
-        hibernateUtil.deleteObject(person);
+        try {
+            hibernateUtil.deleteObject(person);
+        } catch(IllegalArgumentException e) {
+            System.out.println("Person with this ID does not exist!");
+            return;
+        }
     }
 
 }
