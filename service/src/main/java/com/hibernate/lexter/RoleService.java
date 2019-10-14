@@ -69,6 +69,15 @@ public class RoleService {
 	}
 
 	public void addRole(Role role) {
+		List<Role> curRoles = hibernateUtil.getObject(Role.class);
+		boolean existing = false;
+		for(Role tempRole : curRoles) {
+			if(tempRole.toString().equalsIgnoreCase(role.toString())) {
+				existing = true;
+				System.out.println("The Role:" +role.toString() + " is already existing in the database");
+				return;
+			}
+		}
 		hibernateUtil.insertObject(role);
 	}
 
@@ -84,10 +93,14 @@ public class RoleService {
 		hibernateUtil.updateObject(role);
 	}
 
-	public void deleteRole(int id) {
+	public void deleteRole(int id) {	
 		Role role =(Role) hibernateUtil.getSingleObject(Role.class, id);
-		deletePersonContainRole(role);
-		hibernateUtil.deleteObject(role);
+		if(role != null) {
+			deletePersonContainRole(role);
+			hibernateUtil.deleteObject(role);
+		} else {
+			System.out.println("Role with this ID does not Exist!");
+		}
 	}
 
 	public void deletePersonContainRole(Role role) {
